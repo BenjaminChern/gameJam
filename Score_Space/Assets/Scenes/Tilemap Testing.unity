@@ -2339,6 +2339,11 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!95 &1413364203 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 102450748325617938, guid: a604ae1d738182a49ba8c9489f880326, type: 3}
+  m_PrefabInstance: {fileID: 1693702513}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1445693834
 GameObject:
   m_ObjectHideFlags: 0
@@ -2395,6 +2400,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hero
       objectReference: {fileID: 0}
+    - target: {fileID: 6555526028943657671, guid: a604ae1d738182a49ba8c9489f880326, type: 3}
+      propertyPath: m_GravityScale
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6637683676888529564, guid: a604ae1d738182a49ba8c9489f880326, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -2438,6 +2447,14 @@ PrefabInstance:
     - target: {fileID: 6637683676888529564, guid: a604ae1d738182a49ba8c9489f880326, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7641316818759668917, guid: a604ae1d738182a49ba8c9489f880326, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1413364203}
+    - target: {fileID: 7641316818759668917, guid: a604ae1d738182a49ba8c9489f880326, type: 3}
+      propertyPath: jumpForce
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a604ae1d738182a49ba8c9489f880326, type: 3}

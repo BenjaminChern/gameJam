@@ -17,6 +17,8 @@ public class PlayerMovement : MonoBehaviour
     public float checkRadius;
     public LayerMask whatIsGround;
 
+    public Animator animator; 
+
     public int extraJumps;
 
     private void Start()
@@ -26,8 +28,11 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
+        updateAnimator();
+        
         moveInput = Input.GetAxisRaw("Horizontal");
         rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
+        animator.SetFloat("AnimationSpeed", Mathf.Abs(moveInput * speed));
 
         if (facingRight == false && moveInput > 0)
         {
@@ -44,6 +49,12 @@ public class PlayerMovement : MonoBehaviour
         {
             extraJumps = 1;
         }
+
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            animator.SetTrigger("Attack1");
+        }
+
         if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W)) && extraJumps > 0)
         {
             rb.velocity = Vector2.up * jumpForce;
@@ -61,5 +72,18 @@ public class PlayerMovement : MonoBehaviour
         Scaler.x *= -1;
         transform.localScale = Scaler;
 
+    }
+
+    private void updateAnimator()
+    {
+        if (isGrounded == false)
+        {
+            animator.SetBool("IsJumping", true);
+        }
+        else
+        {
+            animator.SetBool("IsJumping", false);
+        }
+        animator.SetFloat("VerticalVelocity", rb.velocity.y);
     }
 }
