@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7641316818759668917}
   - component: {fileID: 4620708634691586465}
   - component: {fileID: 4620708634691586464}
+  - component: {fileID: 6555526028943657671}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Untagged
@@ -169,6 +170,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.27361, y: 0.24576831}
   m_EdgeRadius: 0
+--- !u!50 &6555526028943657671
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1997750316695792236}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 5
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &8423242785248315094
 GameObject:
   m_ObjectHideFlags: 0
