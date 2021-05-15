@@ -41,3 +41,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 2067311561
+    locked: 0
+  - name: Player
+    uniqueID: 3490345681
+    locked: 0
+  - name: Projectile
+    uniqueID: 1837864193
+    locked: 0
+  - name: Particles
+    uniqueID: 403617381
+    locked: 0
+  - name: UI
+    uniqueID: 624385021
+    locked: 0
