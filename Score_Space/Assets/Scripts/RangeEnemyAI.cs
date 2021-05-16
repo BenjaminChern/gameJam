@@ -63,6 +63,7 @@ public class RangeEnemyAI : MonoBehaviour
         }
 
         rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
+        animator.SetFloat("AnimationSpeed", Mathf.Abs(moveInput));
     }
 
 
