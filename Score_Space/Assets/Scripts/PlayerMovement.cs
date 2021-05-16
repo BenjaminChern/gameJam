@@ -11,16 +11,23 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D rb;
     private bool facingRight = true;
-    private bool isCooldown; 
 
     private bool isGrounded;
     public Transform groundCheck;
     public float checkRadius;
     public LayerMask whatIsGround;
 
-    public Animator animator; 
+    public Animator animator;
 
     public int extraJumps;
+    public float dashDistance;
+    public float dashTime; 
+    private bool isDashing;
+    public float dashCooldown;
+    private float nextDashTime;
+
+    public float attackCooldown;
+    private float nextAttackTime; 
 
     private void Start()
     {
@@ -30,18 +37,21 @@ public class PlayerMovement : MonoBehaviour
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
         updateAnimator();
-        
-        moveInput = Input.GetAxisRaw("Horizontal");
-        rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
-        animator.SetFloat("AnimationSpeed", Mathf.Abs(moveInput * speed));
 
-        if (facingRight == false && moveInput > 0)
+        if(isDashing == false)
         {
-            flip();
-        }
-        else if (facingRight == true && moveInput < 0)
-        {
-            flip();
+            moveInput = Input.GetAxisRaw("Horizontal");
+            rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
+
+
+            if (facingRight == false && moveInput > 0)
+            {
+                flip();
+            }
+            else if (facingRight == true && moveInput < 0)
+            {
+                flip();
+            }
         }
     }
     private void Update()
@@ -53,13 +63,29 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.J))
         {
-            if (isCooldown == false)
+            
+            if (Time.time > nextAttackTime)
             {
+                nextAttackTime = Time.time + attackCooldown;
                 animator.SetTrigger("Attack1");
-                Cooldown();
             }
         }
-
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            if(Time.time > nextDashTime)
+            {
+                if (facingRight == true)
+                {
+                    nextDashTime = Time.time + dashCooldown; 
+                    StartCoroutine(Dash(1));
+                }
+                if (facingRight == false)
+                {
+                    nextDashTime = Time.time + dashCooldown;
+                    StartCoroutine(Dash(-1));
+                }
+            }
+        }
         if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W)) && extraJumps > 0)
         {
             rb.velocity = Vector2.up * jumpForce;
@@ -78,14 +104,21 @@ public class PlayerMovement : MonoBehaviour
         transform.localScale = Scaler;
 
     }
-    IEnumerator Cooldown()
+    IEnumerator Dash(int direction)
     {
-        isCooldown = true; 
-        yield return new WaitForSeconds(.25f);
-        isCooldown = false; 
+        isDashing = true;
+        rb.velocity = new Vector2(0f, 0f);
+        rb.AddForce(new Vector2(direction * dashDistance, 0f), ForceMode2D.Impulse);
+        float gravity = rb.gravityScale;
+        rb.gravityScale = 0f;
+        yield return new WaitForSeconds(dashTime);
+        isDashing = false;
+        rb.gravityScale = gravity;
     }
+    
     private void updateAnimator()
     {
+        animator.SetFloat("AnimationSpeed", Mathf.Abs(moveInput * speed));
         if (isGrounded == false)
         {
             animator.SetBool("IsJumping", true);

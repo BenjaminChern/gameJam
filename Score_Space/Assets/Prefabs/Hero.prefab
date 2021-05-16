@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 1997750316695792236}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.655, y: -2.627, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 1}
   m_Children:
   - {fileID: 6573249700111647613}
   m_Father: {fileID: 0}
@@ -127,7 +127,10 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 16
+  animator: {fileID: 0}
   extraJumps: 2
+  dashDistance: 10
+  dashTime: 0.15
 --- !u!58 &4620708634691586465
 CircleCollider2D:
   m_ObjectHideFlags: 0
