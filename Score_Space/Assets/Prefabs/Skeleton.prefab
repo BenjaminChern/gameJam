@@ -119,6 +119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  attackRange: 1.62
   animator: {fileID: 5215930287316360600}
 --- !u!50 &7793112793653263473
 Rigidbody2D:

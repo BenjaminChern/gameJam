@@ -7,10 +7,12 @@ public class RangeEnemyAI : MonoBehaviour
     private Rigidbody2D rb;
     private bool facingRight = true;
     public Rigidbody2D player;
+    public float attackRange; 
 
     private float moveInput;
     private float speed;
     private float health;
+   
 
     //private bool isGrounded;
     //public Transform groundCheck;
@@ -54,7 +56,7 @@ public class RangeEnemyAI : MonoBehaviour
                 flip();
             }
         }
-        if (Mathf.Abs(player.position.x - rb.position.x) < .8)
+        if (Mathf.Abs(player.position.x - rb.position.x) < attackRange)
         {
             moveInput = 0;
             animator.SetTrigger("Attack1");
