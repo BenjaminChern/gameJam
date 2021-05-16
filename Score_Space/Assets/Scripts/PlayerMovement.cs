@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D rb;
     private bool facingRight = true;
+    private bool isCooldown; 
 
     private bool isGrounded;
     public Transform groundCheck;
@@ -52,7 +53,11 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.J))
         {
-            animator.SetTrigger("Attack1");
+            if (isCooldown == false)
+            {
+                animator.SetTrigger("Attack1");
+                Cooldown();
+            }
         }
 
         if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W)) && extraJumps > 0)
@@ -73,7 +78,12 @@ public class PlayerMovement : MonoBehaviour
         transform.localScale = Scaler;
 
     }
-
+    IEnumerator Cooldown()
+    {
+        isCooldown = true; 
+        yield return new WaitForSeconds(.25f);
+        isCooldown = false; 
+    }
     private void updateAnimator()
     {
         if (isGrounded == false)
