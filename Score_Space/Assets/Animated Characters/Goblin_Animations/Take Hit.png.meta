@@ -20,6 +20,9 @@ TextureImporter:
   - first:
       213: 6935486272599230866
     second: Take Hit_5
+  - first:
+      213: 4890612132892402225
+    second: Take Hit_6
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -124,10 +127,10 @@ TextureImporter:
       name: Take Hit_0
       rect:
         serializedVersion: 2
-        x: 58
-        y: 49
-        width: 33
-        height: 36
+        x: 0
+        y: 86
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,10 +148,10 @@ TextureImporter:
       name: Take Hit_1
       rect:
         serializedVersion: 2
-        x: 208
-        y: 49
-        width: 33
-        height: 36
+        x: 47
+        y: 35
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,10 +169,10 @@ TextureImporter:
       name: Take Hit_2
       rect:
         serializedVersion: 2
-        x: 354
-        y: 66
-        width: 7
-        height: 5
+        x: 187
+        y: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,10 +190,10 @@ TextureImporter:
       name: Take Hit_3
       rect:
         serializedVersion: 2
-        x: 358
-        y: 49
-        width: 38
-        height: 37
+        x: 336
+        y: 25
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -208,10 +211,10 @@ TextureImporter:
       name: Take Hit_4
       rect:
         serializedVersion: 2
-        x: 504
-        y: 65
-        width: 5
-        height: 5
+        x: 425
+        y: 83
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -229,10 +232,10 @@ TextureImporter:
       name: Take Hit_5
       rect:
         serializedVersion: 2
-        x: 508
-        y: 49
-        width: 35
-        height: 37
+        x: 423
+        y: 77
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -242,6 +245,27 @@ TextureImporter:
       bones: []
       spriteID: 29900e6e40ccf3060800000000000000
       internalID: 6935486272599230866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Take Hit_6
+      rect:
+        serializedVersion: 2
+        x: 491
+        y: 29
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1326443c2d1fed340800000000000000
+      internalID: 4890612132892402225
       vertices: []
       indices: 
       edges: []
