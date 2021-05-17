@@ -144,4 +144,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.2
   animator: {fileID: 258890197690363626}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  maxDistance: 0.1
   player: {fileID: 1997750316695792236, guid: a604ae1d738182a49ba8c9489f880326, type: 3}

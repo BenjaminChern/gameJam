@@ -66,7 +66,8 @@ public class RangeEnemyAI : MonoBehaviour
         {
             nextAttackTime = Time.time + attackCooldown;
             animator.SetTrigger("Attack3");
-            Instantiate(arrow, new Vector3(rb.position.x, rb.position.y, 0), Quaternion.identity);
+            
+            Destroy(Instantiate(arrow, new Vector3(rb.position.x, rb.position.y, 0), Quaternion.identity), 1f);
 
         }
 

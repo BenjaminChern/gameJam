@@ -9,6 +9,11 @@ public class ProjectileMovement : MonoBehaviour
     public float speed;
     public Animator animator;
     private bool facingRight;
+    public LayerMask playerLayer;
+    public LayerMask enemyLayer;
+    private float currentTime;
+    public float maxDistance;
+
 
     public GameObject player;
 
@@ -23,14 +28,49 @@ public class ProjectileMovement : MonoBehaviour
             moveInput = -1;
             flip();
         }
+        currentTime = 0;
 
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (currentTime != 0)
+        {
+            print(Time.time);
+            print(currentTime + "current time");
+            if (Time.time > currentTime)
+            {
+                print("destroyed");
+                Destroy(this.gameObject);
+            }
+        }
+        /*else if(Time.time > maxDistance)
+        {
+            Destroy(this);
+        }*/
+        else
+        {
+
+            transform.position = new Vector2(transform.position.x + moveInput * speed, transform.position.y);
+            Collider2D hitPlayer = Physics2D.OverlapCircle(transform.position, 0.1f, playerLayer);
+            if (hitPlayer != null)
+            {
+                animator.SetTrigger("Contact");
+                currentTime = Time.time + .4f;
+                
+
+
+            }
+
+            /*Collider2D hitEnemy = Physics2D.OverlapCircle(transform.position, 0.1f, enemyLayer);
+            if (hitEnemy != null)
+            {
+                animator.SetTrigger("Contact");
+                currentTime = Time.time + .4f;
+            }*/
+        }
         
-        transform.position = new Vector2(transform.position.x + moveInput * speed, transform.position.y);
     }
 
     void flip()
