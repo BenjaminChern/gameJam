@@ -7,7 +7,7 @@ public class MeleeEnemyAI : MonoBehaviour
     private Rigidbody2D rb;
     private bool facingRight = true;
     public GameObject player;
-    public float attackRange;
+    public float movementRange; 
 
     private float moveInput;
     private float speed;
@@ -15,6 +15,10 @@ public class MeleeEnemyAI : MonoBehaviour
 
     public float attackCooldown;
     private float nextAttackTime;
+
+    public Transform hitbox;
+    public float attackRange = .5f;
+    public LayerMask playerLayer;
 
 
     //private bool isGrounded;
@@ -44,7 +48,7 @@ public class MeleeEnemyAI : MonoBehaviour
             moveInput = -1;
         }
 
-
+        
         if ((player.transform.position.x - rb.position.x) > .01)
         {
             if (facingRight == false)
@@ -59,13 +63,28 @@ public class MeleeEnemyAI : MonoBehaviour
                 flip();
             }
         }
+        
         if (Mathf.Abs(player.transform.position.x - rb.position.x) < attackRange)
         {
             moveInput = 0;
-            animator.SetTrigger("Attack1");
+            if (Time.time > nextAttackTime)
+            {
+                animator.SetTrigger("Attack1");
+                Collider2D hit = Physics2D.OverlapCircle(hitbox.position, attackRange, playerLayer);
+                Debug.Log(hit.name);
+                nextAttackTime = Time.time + attackCooldown;
+            }
         }
-
-        rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
+        if(Mathf.Abs(player.transform.position.x - transform.position.x) + Mathf.Abs(player.transform.position.y - transform.position.y) < movementRange)
+        {
+            rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
+        }
+        else
+        {
+            rb.velocity = new Vector2(0, rb.velocity.y); 
+            moveInput = 0;
+        }
+        
         animator.SetFloat("AnimationSpeed", Mathf.Abs(moveInput));
     }
 
