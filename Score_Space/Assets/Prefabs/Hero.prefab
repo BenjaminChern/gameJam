@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 916cf66ba0b6ec54eaf49403f2789791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 7
   jumpForce: 15
   momentum: 5
   groundCheck: {fileID: 6573249700111647613}
@@ -128,7 +128,7 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 16
-  animator: {fileID: 0}
+  animator: {fileID: 102450748325617938}
   extraJumps: 2
   dashDistance: 20
   dashTime: 0.1
