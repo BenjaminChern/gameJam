@@ -26,8 +26,6 @@ public class PlayerMovement : MonoBehaviour
     public float dashCooldown;
     private float nextDashTime;
 
-    public float attackCooldown;
-    private float nextAttackTime; 
 
     private void Start()
     {
@@ -61,15 +59,7 @@ public class PlayerMovement : MonoBehaviour
             extraJumps = 1;
         }
 
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            
-            if (Time.time > nextAttackTime)
-            {
-                nextAttackTime = Time.time + attackCooldown;
-                animator.SetTrigger("Attack1");
-            }
-        }
+        
         if (Input.GetKeyDown(KeyCode.K))
         {
             if(Time.time > nextDashTime)

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4620708634691586465}
   - component: {fileID: 4620708634691586464}
   - component: {fileID: 6555526028943657671}
+  - component: {fileID: -323962515114128385}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Untagged
@@ -129,8 +130,9 @@ MonoBehaviour:
     m_Bits: 16
   animator: {fileID: 0}
   extraJumps: 2
-  dashDistance: 10
-  dashTime: 0.15
+  dashDistance: 20
+  dashTime: 0.1
+  dashCooldown: 0.5
 --- !u!58 &4620708634691586465
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -194,6 +196,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &-323962515114128385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1997750316695792236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4d3c8cc1df131341807c27f7d91c213, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitbox: {fileID: 0}
+  attackRange: 0.5
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 8
+  attackCooldown: 0.2
+  animator: {fileID: 102450748325617938}
 --- !u!1 &8423242785248315094
 GameObject:
   m_ObjectHideFlags: 0
