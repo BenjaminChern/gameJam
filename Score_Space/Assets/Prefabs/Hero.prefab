@@ -130,8 +130,8 @@ MonoBehaviour:
     m_Bits: 16
   animator: {fileID: 102450748325617938}
   extraJumps: 2
-  dashDistance: 20
-  dashTime: 0.1
+  dashDistance: 27
+  dashTime: 0.07
   dashCooldown: 0.5
 --- !u!58 &4620708634691586465
 CircleCollider2D:
