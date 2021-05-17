@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 258890197690363627}
   - component: {fileID: 258890197690363626}
   - component: {fileID: 2872092634455151096}
+  - component: {fileID: 3139753014902044405}
   m_Layer: 6
   m_Name: SkeletonSword
   m_TagString: Untagged
@@ -129,3 +130,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.32, y: 0.4}
   m_EdgeRadius: 0
+--- !u!114 &3139753014902044405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 258890197690363625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74d31aaf05b73b349b0058f6006b5570, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.2
+  animator: {fileID: 258890197690363626}
+  player: {fileID: 1997750316695792236, guid: a604ae1d738182a49ba8c9489f880326, type: 3}

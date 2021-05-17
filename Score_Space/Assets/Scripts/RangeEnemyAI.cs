@@ -6,13 +6,18 @@ public class RangeEnemyAI : MonoBehaviour
 {
     private Rigidbody2D rb;
     private bool facingRight = true;
-    public Rigidbody2D player;
+    public GameObject player;
     public float attackRange; 
 
     private float moveInput;
     private float speed;
     private float health;
-   
+
+    public float attackCooldown;
+    private float nextAttackTime;
+
+    public GameObject arrow;
+
 
     //private bool isGrounded;
     //public Transform groundCheck;
@@ -32,38 +37,42 @@ public class RangeEnemyAI : MonoBehaviour
     private void FixedUpdate()
     {
 
-        if (facingRight)
+        /*if (facingRight)
         {
             moveInput = 1;
         }
         else 
         {
             moveInput = -1;
-        }
+        }*/
         
 
-        if ((player.position.x - rb.position.x) > .01)
+        if ((player.transform.position.x - rb.position.x) > .01)
         {
             if (facingRight == false)
             {
                 flip();
             }
         }
-        else if((player.position.x - rb.position.x) < -.01)
+        else if((player.transform.position.x - rb.position.x) < -.01)
         {
             if (facingRight)
             {
                 flip();
             }
         }
-        if (Mathf.Abs(player.position.x - rb.position.x) < attackRange)
+
+        if (Time.time > nextAttackTime)
         {
-            moveInput = 0;
-            animator.SetTrigger("Attack1");
+            nextAttackTime = Time.time + attackCooldown;
+            animator.SetTrigger("Attack3");
+            Instantiate(arrow, new Vector3(rb.position.x, rb.position.y, 0), Quaternion.identity);
+
         }
 
-        rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
-        animator.SetFloat("AnimationSpeed", Mathf.Abs(moveInput));
+
+        //rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
+        //animator.SetFloat("AnimationSpeed", Mathf.Abs(moveInput));
     }
 
 
