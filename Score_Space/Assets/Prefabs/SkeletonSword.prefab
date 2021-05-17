@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 258890197690363626}
   - component: {fileID: 2872092634455151096}
   - component: {fileID: 3139753014902044405}
+  - component: {fileID: -8931223540996521616}
   m_Layer: 6
   m_Name: SkeletonSword
   m_TagString: Untagged
@@ -117,7 +118,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.037432585, y: 0.054544643}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -128,7 +129,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.32, y: 0.4}
+  m_Size: {x: 0.24513483, y: 0.23743549}
   m_EdgeRadius: 0
 --- !u!114 &3139753014902044405
 MonoBehaviour:
@@ -142,7 +143,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74d31aaf05b73b349b0058f6006b5570, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.2
+  moveInput: -1
+  speed: 5
   animator: {fileID: 258890197690363626}
   playerLayer:
     serializedVersion: 2
@@ -150,5 +152,29 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 8
-  maxDistance: 0.1
+  backgroundLayer:
+    serializedVersion: 2
+    m_Bits: 768
+  maxDistance: 1
   player: {fileID: 1997750316695792236, guid: a604ae1d738182a49ba8c9489f880326, type: 3}
+--- !u!50 &-8931223540996521616
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 258890197690363625}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0

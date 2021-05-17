@@ -4,31 +4,26 @@ using UnityEngine;
 
 public class ProjectileMovement : MonoBehaviour
 {
-
-    private float moveInput;
+    public float moveInput;
     public float speed;
     public Animator animator;
     private bool facingRight;
     public LayerMask playerLayer;
     public LayerMask enemyLayer;
+    public LayerMask backgroundLayer;
     private float currentTime;
     public float maxDistance;
 
 
     public GameObject player;
-
+    private Rigidbody2D rb;
 
     // Start is called before the first frame update
     void Start()
     {
-        moveInput = 1;
-        facingRight = true;
-        if ((player.transform.position.x - transform.position.x) < 0)
-        {
-            moveInput = -1;
-            flip();
-        }
-        currentTime = 0;
+
+
+        rb = GetComponent<Rigidbody2D>();
 
     }
 
@@ -52,14 +47,21 @@ public class ProjectileMovement : MonoBehaviour
         else
         {
 
-            transform.position = new Vector2(transform.position.x + moveInput * speed, transform.position.y);
+            rb.velocity = new Vector2((speed * moveInput), 0);
+            print(moveInput * speed);
             Collider2D hitPlayer = Physics2D.OverlapCircle(transform.position, 0.1f, playerLayer);
             if (hitPlayer != null)
             {
                 animator.SetTrigger("Contact");
+                moveInput = 0;
+                rb.velocity = new Vector2(0, 0);
                 currentTime = Time.time + .4f;
-                
-
+               
+            }
+            Collider2D hitBackground = Physics2D.OverlapCircle(transform.position, 0.1f, backgroundLayer);
+            if (hitBackground != null)
+            {
+                Destroy(this.gameObject);
 
             }
 
@@ -76,9 +78,11 @@ public class ProjectileMovement : MonoBehaviour
     void flip()
     {
         facingRight = !facingRight;
-        Vector3 Scaler = transform.localScale;
-        Scaler.x *= -1;
-        transform.localScale = Scaler;
+        transform.Rotate(0f, 180f, 0f);
 
+    }
+    public void setMoveInput(float input)
+    {
+        moveInput = input;
     }
 }

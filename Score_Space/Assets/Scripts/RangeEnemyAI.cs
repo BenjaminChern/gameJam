@@ -66,8 +66,17 @@ public class RangeEnemyAI : MonoBehaviour
         {
             nextAttackTime = Time.time + attackCooldown;
             animator.SetTrigger("Attack3");
+            GameObject projectile = Instantiate(arrow, new Vector3(rb.position.x, rb.position.y, 0), Quaternion.identity);
+            if (facingRight)
+            {
+                projectile.GetComponent<ProjectileMovement>().setMoveInput(1);
+            }
+            else
+            {
+                projectile.GetComponent<ProjectileMovement>().setMoveInput(-1);
+            }
+            Destroy(projectile, 1.5f);
             
-            Destroy(Instantiate(arrow, new Vector3(rb.position.x, rb.position.y, 0), Quaternion.identity), 1f);
 
         }
 
@@ -80,9 +89,7 @@ public class RangeEnemyAI : MonoBehaviour
     void flip()
     {
         facingRight = !facingRight;
-        Vector3 Scaler = transform.localScale;
-        Scaler.x *= -1;
-        transform.localScale = Scaler;
+        transform.Rotate(0f, 180f, 0f);
 
     }
 }
