@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 4620708634691586464}
   - component: {fileID: 6555526028943657671}
   - component: {fileID: -323962515114128385}
+  - component: {fileID: -4178778806238628520}
   m_Layer: 7
   m_Name: Hero
   m_TagString: Untagged
@@ -140,9 +141,9 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1997750316695792236}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 9e4b64a0c8cae7a4b9697c8e207b4aec, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -156,9 +157,9 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1997750316695792236}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 9e4b64a0c8cae7a4b9697c8e207b4aec, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -215,6 +216,22 @@ MonoBehaviour:
     m_Bits: 8
   attackCooldown: 0.2
   animator: {fileID: 102450748325617938}
+--- !u!70 &-4178778806238628520
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1997750316695792236}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 9e4b64a0c8cae7a4b9697c8e207b4aec, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0087649105, y: -0.048880316}
+  m_Size: {x: 0.2597917, y: 0.3983975}
+  m_Direction: 0
 --- !u!1 &8423242785248315094
 GameObject:
   m_ObjectHideFlags: 0
