@@ -8047,6 +8047,10 @@ PrefabInstance:
       value: 0.028779097
       objectReference: {fileID: 0}
     - target: {fileID: 6555526028943657671, guid: a604ae1d738182a49ba8c9489f880326, type: 3}
+      propertyPath: m_GravityScale
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6555526028943657671, guid: a604ae1d738182a49ba8c9489f880326, type: 3}
       propertyPath: m_CollisionDetection
       value: 1
       objectReference: {fileID: 0}
@@ -8103,6 +8107,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7641316818759668917, guid: a604ae1d738182a49ba8c9489f880326, type: 3}
+      propertyPath: upwardGravity
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7641316818759668917, guid: a604ae1d738182a49ba8c9489f880326, type: 3}
+      propertyPath: downwardGravity
+      value: 9.81
+      objectReference: {fileID: 0}
+    - target: {fileID: 7641316818759668917, guid: a604ae1d738182a49ba8c9489f880326, type: 3}
       propertyPath: whatIsGround.m_Bits
       value: 512
       objectReference: {fileID: 0}
@@ -8119,6 +8131,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1620144631}
+    - target: {fileID: 714460244, guid: f103eddba5b958c43aac36a7b536e3a9, type: 3}
+      propertyPath: attackCooldown
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1646584968250135395, guid: f103eddba5b958c43aac36a7b536e3a9, type: 3}
       propertyPath: m_Name
       value: Skeleton (1)

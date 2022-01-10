@@ -6,6 +6,8 @@ public class PlayerMovement : MonoBehaviour
 {
     public float speed;
     public float jumpForce;
+    public float upwardGravity;
+    public float downwardGravity;
     private float moveInput;
     public float momentum;
 
@@ -58,7 +60,17 @@ public class PlayerMovement : MonoBehaviour
         {
             extraJumps = 1;
         }
-
+        else
+        {
+            if (rb.velocity.y >= 0)
+            {
+                rb.gravityScale = upwardGravity;
+            }
+            else
+            {
+                rb.gravityScale = downwardGravity;
+            }
+        }
         
         if (Input.GetKeyDown(KeyCode.K))
         {
