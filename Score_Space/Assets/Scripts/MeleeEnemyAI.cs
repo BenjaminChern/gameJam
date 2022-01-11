@@ -69,10 +69,11 @@ public class MeleeEnemyAI : MonoBehaviour
             moveInput = 0;
             if (Time.time > nextAttackTime)
             {
+                nextAttackTime = Time.time + attackCooldown;
                 animator.SetTrigger("Attack1");
-                Collider2D hit = Physics2D.OverlapCircle(hitbox.position, attackRange, playerLayer);
-                Debug.Log(hit.name + "test");
-                nextAttackTime = Time.time + attackCooldown + ;
+                //Collider2D hit = Physics2D.OverlapCircle(hitbox.position, attackRange, playerLayer);
+                //Debug.Log(hit.name + "test");
+                
             }
         }
         if(Mathf.Abs(player.transform.position.x - transform.position.x) + Mathf.Abs(player.transform.position.y - transform.position.y) < movementRange)
