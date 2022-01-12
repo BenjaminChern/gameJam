@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float speed;
+    public float topSpeed;
     public float jumpForce;
     public float upwardGravity;
     public float downwardGravity;
     private float moveInput;
-    public float momentum;
+    private float speed;
+    public float acceleration;
+    public float deceleration;
 
     private Rigidbody2D rb;
     private bool facingRight = true;
@@ -32,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        speed = 0;
     }
     private void FixedUpdate()
     {
@@ -41,7 +44,35 @@ public class PlayerMovement : MonoBehaviour
         if(isDashing == false)
         {
             moveInput = Input.GetAxisRaw("Horizontal");
-            rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
+
+            
+            if (moveInput == 0)
+            {
+                if (speed > 0)
+                {
+                    speed = Mathf.Abs(speed - deceleration);
+                }
+            }
+            else if (speed < topSpeed)
+            {
+                speed = speed + acceleration;
+            }
+            if (speed != 0)
+            {
+                if(facingRight)
+                {
+                    rb.velocity = new Vector2(speed, rb.velocity.y);
+                }
+                else
+                {
+                    rb.velocity = new Vector2(-speed, rb.velocity.y);
+                }
+                
+            }
+            else
+            {
+                rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
+            }
 
 
             if (facingRight == false && moveInput > 0)
@@ -52,6 +83,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 flip();
             }
+            
         }
     }
     private void Update()

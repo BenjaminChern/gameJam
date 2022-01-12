@@ -33,6 +33,7 @@ public class MeleeEnemyAI : MonoBehaviour
         health = 3;
         rb = GetComponent<Rigidbody2D>();
         speed = 5;
+        nextAttackTime = 0;
 
     }
 
@@ -70,6 +71,7 @@ public class MeleeEnemyAI : MonoBehaviour
             if (Time.time > nextAttackTime)
             {
                 nextAttackTime = Time.time + attackCooldown;
+                Debug.Log("Time: " + Time.time + "Next Attack: " + nextAttackTime);
                 animator.SetTrigger("Attack1");
                 //Collider2D hit = Physics2D.OverlapCircle(hitbox.position, attackRange, playerLayer);
                 //Debug.Log(hit.name + "test");
