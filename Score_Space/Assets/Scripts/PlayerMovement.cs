@@ -12,6 +12,9 @@ public class PlayerMovement : MonoBehaviour
     private float speed;
     public float acceleration;
     public float deceleration;
+    public float turnAroundPenalty;
+    public float airPenalty;
+    public float turnAroundAirPenalty;
 
     private Rigidbody2D rb;
     private bool facingRight = true;
@@ -33,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
+        moveInput = 0;
         rb = GetComponent<Rigidbody2D>();
         speed = 0;
     }
@@ -44,19 +48,48 @@ public class PlayerMovement : MonoBehaviour
         if(isDashing == false)
         {
             moveInput = Input.GetAxisRaw("Horizontal");
+            if (moveInput != 0 && (facingRight && moveInput < 0) || (!facingRight && moveInput > 0))
+            {
+                speed *= -1 * turnAroundPenalty;
+                //Debug.Log("speed");
+                if(isGrounded == false)
+                {
+                    speed *= -1 * turnAroundAirPenalty;  
+                }
+            }
 
-            
-            if (moveInput == 0)
+            if (moveInput == 0) //decel
             {
                 if (speed > 0)
                 {
-                    speed = Mathf.Abs(speed - deceleration);
+                    if (isGrounded == false)
+                    {
+                        speed = speed-deceleration * airPenalty;
+                    }
+                    else
+                    {
+                        speed = (speed - deceleration);
+
+                        if (speed < 0)
+                        {
+                            speed = 0;
+                        }
+                    }
                 }
             }
-            else if (speed < topSpeed)
+            else if (speed < topSpeed) //accel
             {
-                speed = speed + acceleration;
+                if (isGrounded == false)
+                {
+                    speed = speed + acceleration* airPenalty;
+                }
+                else
+                {
+                    speed = speed + acceleration;
+                }
             }
+
+            
             if (speed != 0)
             {
                 if(facingRight)
