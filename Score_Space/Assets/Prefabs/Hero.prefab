@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: 6555526028943657671}
   - component: {fileID: -323962515114128385}
   - component: {fileID: -4178778806238628520}
+  - component: {fileID: 6528854773592986583}
   m_Layer: 7
   m_Name: Hero
   m_TagString: Untagged
@@ -153,9 +154,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 916cf66ba0b6ec54eaf49403f2789791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 7
+  topSpeed: 0
   jumpForce: 15
-  momentum: 5
+  upwardGravity: 0
+  downwardGravity: 0
+  acceleration: 0
+  deceleration: 0
+  turnAroundPenalty: 0
+  airPenalty: 0
+  turnAroundAirPenalty: 0
   groundCheck: {fileID: 6573249700111647613}
   checkRadius: 0.1
   whatIsGround:
@@ -264,6 +271,20 @@ CapsuleCollider2D:
   m_Offset: {x: -0.0087649105, y: -0.048880316}
   m_Size: {x: 0.2597917, y: 0.3983975}
   m_Direction: 0
+--- !u!114 &6528854773592986583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1997750316695792236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22ace6ed2719995458974039f0646058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 5
+  animator: {fileID: 102450748325617938}
 --- !u!1 &7494030047915230612
 GameObject:
   m_ObjectHideFlags: 0

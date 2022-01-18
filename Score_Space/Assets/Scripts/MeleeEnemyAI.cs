@@ -11,7 +11,7 @@ public class MeleeEnemyAI : MonoBehaviour
 
     private float moveInput;
     private float speed;
-    private float health;
+    public float health = 3;
 
     public float attackCooldown;
     private float nextAttackTime;
@@ -30,7 +30,6 @@ public class MeleeEnemyAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        health = 3;
         rb = GetComponent<Rigidbody2D>();
         speed = 5;
         nextAttackTime = 0;
@@ -71,10 +70,8 @@ public class MeleeEnemyAI : MonoBehaviour
             if (Time.time > nextAttackTime)
             {
                 nextAttackTime = Time.time + attackCooldown;
-                Debug.Log("Time: " + Time.time + "Next Attack: " + nextAttackTime);
-                animator.SetTrigger("Attack1");
-                //Collider2D hit = Physics2D.OverlapCircle(hitbox.position, attackRange, playerLayer);
-                //Debug.Log(hit.name + "test");
+                //Debug.Log("Time: " + Time.time + "Next Attack: " + nextAttackTime);
+                attack();
                 
             }
         }
@@ -91,6 +88,14 @@ public class MeleeEnemyAI : MonoBehaviour
         animator.SetFloat("AnimationSpeed", Mathf.Abs(moveInput));
     }
 
+    void attack()
+    {
+        animator.SetTrigger("Attack1");
+        Collider2D hit = Physics2D.OverlapCircle(hitbox.position, attackRange, playerLayer);
+        //Debug.Log(hit.name + "test");
+        hit.gameObject.GetComponent<PlayerHealth>().getHit(1);
+    }
+
 
     void flip()
     {
@@ -99,5 +104,11 @@ public class MeleeEnemyAI : MonoBehaviour
         Scaler.x *= -1;
         transform.localScale = Scaler;
 
+    }
+    
+    public void getHit(int damage)
+    {
+        health -= damage;
+        //Debug.Log("took " + damage + "damage");
     }
 }

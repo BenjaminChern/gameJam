@@ -30,13 +30,14 @@ public class PlayerAttack : MonoBehaviour
         animator.SetTrigger("Attack1");
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(hitbox.position, attackRange, enemyLayers);
         List<string> names = new List<string>();
-        foreach (Collider2D enemies in hitEnemies)
+        foreach (Collider2D enemy in hitEnemies)
         {
             
-            if(names.Contains(enemies.name) == false)
+            if(names.Contains(enemy.name) == false)
             {
-                names.Add(enemies.name);
-                Debug.Log("hit enemy poggies " + enemies.name);
+                names.Add(enemy.name);
+                //Debug.Log("hit enemy poggies " + enemy.name);
+                enemy.gameObject.GetComponent<MeleeEnemyAI>().getHit(1);
             }
         }
     }
