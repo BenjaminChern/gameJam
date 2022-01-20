@@ -11,7 +11,7 @@ public class RangeEnemyAI : MonoBehaviour
 
     private float moveInput;
     private float speed;
-    private float health;
+    public float health = 3;
 
     public float attackCooldown;
     private float nextAttackTime;
@@ -28,7 +28,6 @@ public class RangeEnemyAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        health = 3;
         rb = GetComponent<Rigidbody2D>();
         speed = 5;
 
@@ -83,6 +82,12 @@ public class RangeEnemyAI : MonoBehaviour
 
         //rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
         //animator.SetFloat("AnimationSpeed", Mathf.Abs(moveInput));
+    }
+
+    public void getHit(int damage)
+    {
+        health -= damage;
+        //Debug.Log("took " + damage + "damage");
     }
 
 
