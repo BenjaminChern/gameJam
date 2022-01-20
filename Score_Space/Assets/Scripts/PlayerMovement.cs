@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     public float turnAroundPenalty;
     public float airPenalty;
     public float turnAroundAirPenalty;
+    public float instantBoost;
 
     private Rigidbody2D rb;
     private bool facingRight = true;

@@ -9,7 +9,7 @@ public class PlayerAttack : MonoBehaviour
     public LayerMask enemyLayers;
 
     public float attackCooldown;
-    private float nextAttackTime;
+    private float nextAttackTime = 0;
 
     public Animator animator;
 
@@ -17,11 +17,10 @@ public class PlayerAttack : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.J))
         {
-
             if (Time.time > nextAttackTime)
             {
-                nextAttackTime = Time.time + attackCooldown;
                 Attack();
+                nextAttackTime = Time.time + attackCooldown;
             }
         }
     }
