@@ -105,6 +105,12 @@ public class MeleeEnemyAI : MonoBehaviour
         transform.localScale = Scaler;
 
     }
+
+    public void die()
+    {
+        transform.position += new Vector3(0, -.75f, 0);
+        this.GetComponent<Rigidbody2D>().gravityScale = 0f; 
+    }
     
     public void getHit(int damage)
     {

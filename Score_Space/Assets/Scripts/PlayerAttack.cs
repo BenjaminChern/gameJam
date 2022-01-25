@@ -36,7 +36,7 @@ public class PlayerAttack : MonoBehaviour
             {
                 names.Add(enemy.name);
                 //Debug.Log("hit enemy poggies " + enemy.name);
-                enemy.gameObject.GetComponent<MeleeEnemyAI>().getHit(1);
+                enemy.gameObject.GetComponent<EnemyHealth>().getHit(1);
             }
         }
     }

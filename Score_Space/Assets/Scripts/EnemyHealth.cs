@@ -6,6 +6,7 @@ public class EnemyHealth : MonoBehaviour
 {
     public float health = 3;
     public Animator animator;
+    private bool firstDeath = true; 
 
     private void Start()
     {
@@ -28,11 +29,13 @@ public class EnemyHealth : MonoBehaviour
         {
             animator.SetTrigger("Hurt");
         }
-        //Debug.Log("player took " + damage + "damage");
+        Debug.Log("enemy took " + damage + "damage");
         if (health <= 0 && firstDeath)
         {
             animator.SetTrigger("Die");
             firstDeath = false;
+            this.gameObject.GetComponent<MeleeEnemyAI>().die();
+
         }
     }
 }
