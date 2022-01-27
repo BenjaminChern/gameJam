@@ -29,7 +29,7 @@ public class EnemyHealth : MonoBehaviour
         {
             animator.SetTrigger("Hurt");
         }
-        Debug.Log("enemy took " + damage + "damage");
+        Debug.Log("enemy took " + damage + "damage.   Health is " + health);
         if (health <= 0 && firstDeath)
         {
             animator.SetTrigger("Die");

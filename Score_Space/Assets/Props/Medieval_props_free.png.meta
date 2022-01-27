@@ -74,6 +74,30 @@ TextureImporter:
   - first:
       213: -6922214013583640508
     second: Medieval_props_free_23
+  - first:
+      213: 1965671581986798914
+    second: Medieval_props_free_24
+  - first:
+      213: 4809227529314926895
+    second: Medieval_props_free_25
+  - first:
+      213: 9192292223520985888
+    second: Medieval_props_free_26
+  - first:
+      213: 5687351422040661464
+    second: Medieval_props_free_27
+  - first:
+      213: -2182808824087947150
+    second: Medieval_props_free_28
+  - first:
+      213: 2789303530452963864
+    second: Medieval_props_free_29
+  - first:
+      213: -1608932117089025606
+    second: Medieval_props_free_30
+  - first:
+      213: 7749350244403962899
+    second: Medieval_props_free_31
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -118,7 +142,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 48
+  spritePixelsToUnits: 24
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -161,6 +185,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1

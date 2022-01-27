@@ -108,7 +108,7 @@ public class MeleeEnemyAI : MonoBehaviour
 
     public void die()
     {
-        transform.position += new Vector3(0, -.75f, 0);
+        transform.position += new Vector3(0, 0, 0);
         this.GetComponent<Rigidbody2D>().gravityScale = 0f; 
     }
     
