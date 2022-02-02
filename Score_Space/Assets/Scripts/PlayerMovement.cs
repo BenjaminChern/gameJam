@@ -66,15 +66,17 @@ public class PlayerMovement : MonoBehaviour
                     if (isGrounded == false)
                     {
                         speed = speed-deceleration * airPenalty;
+
                     }
                     else
                     {
                         speed = (speed - deceleration);
 
-                        if (speed < 0)
-                        {
-                            speed = 0;
-                        }
+                    }
+
+                    if (speed < 0)
+                    {
+                        speed = 0;
                     }
                 }
             }
@@ -82,11 +84,11 @@ public class PlayerMovement : MonoBehaviour
             {
                 if (isGrounded == false)
                 {
-                    speed = speed + acceleration* airPenalty;
+                    speed = speed+ instantBoost + acceleration* airPenalty;
                 }
                 else
                 {
-                    speed = speed + acceleration;
+                    speed = speed+instantBoost + acceleration;
                 }
             }
 
