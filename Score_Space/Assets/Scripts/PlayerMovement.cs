@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     public float deceleration;
     public float turnAroundPenalty;
     public float airPenalty;
+    public float airResistance;
     public float turnAroundAirPenalty;
     public float instantBoost;
 
@@ -45,6 +46,11 @@ public class PlayerMovement : MonoBehaviour
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
         updateAnimator();
+
+        if(speed > topSpeed)
+        {
+            speed = topSpeed;
+        }
 
         if(isDashing == false)
         {
@@ -84,6 +90,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 if (isGrounded == false)
                 {
+                    if(speed < topSpeed * airResistance)
                     speed = speed+ instantBoost + acceleration* airPenalty;
                 }
                 else
