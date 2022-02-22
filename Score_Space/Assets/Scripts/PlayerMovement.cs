@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private bool facingRight = true;
 
-    private bool isGrounded;
+    public bool isGrounded;
     public Transform groundCheck;
     public float checkRadius;
     public LayerMask whatIsGround;
@@ -35,6 +35,10 @@ public class PlayerMovement : MonoBehaviour
     public float dashCooldown;
     private float nextDashTime;
 
+    private bool isWallSliding;
+    public Transform wallCheckRight;
+    public Transform wallCheckLeft;
+
 
     private void Start()
     {
@@ -44,7 +48,21 @@ public class PlayerMovement : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        if(Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround) && !isGrounded)
+        {
+            Debug.Log("hit ground");
+        }
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
+
+        isWallSliding = Physics2D.OverlapCircle(wallCheckLeft.position, checkRadius, whatIsGround); //removed wallcheck right
+
+        if (isWallSliding)
+        {
+            if (!isGrounded)
+            {
+                
+            }
+        }
         updateAnimator();
 
         if(speed > topSpeed)
@@ -134,6 +152,7 @@ public class PlayerMovement : MonoBehaviour
         if (isGrounded == true)
         {
             extraJumps = 1;
+            rb.gravityScale = downwardGravity;
         }
         else
         {
@@ -143,7 +162,15 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                rb.gravityScale = downwardGravity;
+                if (!isWallSliding)
+                {
+                    rb.gravityScale = downwardGravity;
+                }
+                else
+                {
+                    rb.gravityScale = 0;
+                    rb.velocity = new Vector2(rb.velocity.x, -1);
+                }
             }
         }
         
@@ -198,11 +225,20 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("AnimationSpeed", Mathf.Abs(moveInput * speed));
         if (isGrounded == false)
         {
-            animator.SetBool("IsJumping", true);
+            if (isWallSliding)
+            {
+                animator.SetBool("IsJumping", true); //if adding wall sliding back, set this to false
+                animator.SetBool("IsWallSliding", false);//we removed the wall sliding animation by setting to false
+            } else
+            {
+                animator.SetBool("IsWallSliding", false);
+                animator.SetBool("IsJumping", true);
+            }
         }
         else
         {
             animator.SetBool("IsJumping", false);
+            animator.SetBool("IsWallSliding", false);
         }
         animator.SetFloat("VerticalVelocity", rb.velocity.y);
     }
