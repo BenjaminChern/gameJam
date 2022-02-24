@@ -56,7 +56,8 @@ public class ProjectileMovement : MonoBehaviour
                 moveInput = 0;
                 rb.velocity = new Vector2(0, 0);
                 currentTime = Time.time + .4f;
-               
+                hitPlayer.gameObject.GetComponent<PlayerHealth>().getHit(1);
+
             }
             Collider2D hitBackground = Physics2D.OverlapCircle(transform.position, 0.1f, backgroundLayer);
             if (hitBackground != null)

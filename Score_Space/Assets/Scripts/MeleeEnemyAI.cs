@@ -20,11 +20,10 @@ public class MeleeEnemyAI : MonoBehaviour
     public float attackRange = .5f;
     public LayerMask playerLayer;
 
-
-    //private bool isGrounded;
-    //public Transform groundCheck;
-    //public float checkRadius;
-    //public LayerMask whatIsGround;
+    private bool isGrounded;
+    public Transform groundCheck;
+    public float checkRadius;
+    public LayerMask whatIsGround;
 
     public Animator animator;
     // Start is called before the first frame update
@@ -46,6 +45,13 @@ public class MeleeEnemyAI : MonoBehaviour
         else
         {
             moveInput = -1;
+        }
+
+        //Check to see if he falls off an edge
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
+        if (!isGrounded)
+        {
+            rb.transform.position = new Vector3(rb.transform.position.x - (moveInput), rb.transform.position.y, 0);
         }
 
         
