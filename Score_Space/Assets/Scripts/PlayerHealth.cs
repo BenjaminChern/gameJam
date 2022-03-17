@@ -8,10 +8,14 @@ public class PlayerHealth : MonoBehaviour
     public float health = 10;
     public Animator animator;
     private bool firstDeath;
+    public GameObject noHeart;
+    public GameObject halfHeart;
+    public GameObject Heart;
 
     private void Start()
     {
         firstDeath = true;
+        
     }
 
     private void FixedUpdate()
