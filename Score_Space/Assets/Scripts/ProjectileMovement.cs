@@ -32,11 +32,11 @@ public class ProjectileMovement : MonoBehaviour
     {
         if (currentTime != 0)
         {
-            print(Time.time);
-            print(currentTime + "current time");
+            //print(Time.time);
+            //print(currentTime + "current time");
             if (Time.time > currentTime)
             {
-                print("destroyed");
+                //print("destroyed");
                 Destroy(this.gameObject);
             }
         }
@@ -48,7 +48,6 @@ public class ProjectileMovement : MonoBehaviour
         {
 
             rb.velocity = new Vector2((speed * moveInput), 0);
-            print(moveInput * speed);
             Collider2D hitPlayer = Physics2D.OverlapCircle(transform.position, 0.1f, playerLayer);
             if (hitPlayer != null)
             {
@@ -56,6 +55,7 @@ public class ProjectileMovement : MonoBehaviour
                 moveInput = 0;
                 rb.velocity = new Vector2(0, 0);
                 currentTime = Time.time + .4f;
+                print("getting hit");
                 hitPlayer.gameObject.GetComponent<PlayerHealth>().getHit(1);
 
             }

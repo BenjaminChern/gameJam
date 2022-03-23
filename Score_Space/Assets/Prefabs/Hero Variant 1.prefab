@@ -93,7 +93,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1997750316695792236, guid: a604ae1d738182a49ba8c9489f880326, type: 3}
       propertyPath: m_Name
-      value: Hero Variant
+      value: Hero Variant 1
       objectReference: {fileID: 0}
     - target: {fileID: 4620708634691586464, guid: a604ae1d738182a49ba8c9489f880326, type: 3}
       propertyPath: m_Size.x
@@ -111,6 +111,10 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: 0.028779097
       objectReference: {fileID: 0}
+    - target: {fileID: 6528854773592986583, guid: a604ae1d738182a49ba8c9489f880326, type: 3}
+      propertyPath: heartCanvas
+      value: 
+      objectReference: {fileID: 8547651463190632006, guid: cbcb810374a07d14497ab820009ca9b4, type: 3}
     - target: {fileID: 6555526028943657671, guid: a604ae1d738182a49ba8c9489f880326, type: 3}
       propertyPath: m_GravityScale
       value: 5

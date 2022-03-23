@@ -5,12 +5,11 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
 
-    public float health = 10;
+    public int health = 6;
     public Animator animator;
     private bool firstDeath;
-    public GameObject noHeart;
-    public GameObject halfHeart;
-    public GameObject Heart;
+
+    public Canvas heartCanvas;
 
     private void Start()
     {
@@ -30,7 +29,8 @@ public class PlayerHealth : MonoBehaviour
     public void getHit(int damage)
     {
         health -= damage;
-        if(health > 0)
+        heartCanvas.GetComponent<HeartScript>().healthSet(health);
+        if (health > 0)
         {
             animator.SetTrigger("Hurt");
             Debug.Log("multiple hurt");
