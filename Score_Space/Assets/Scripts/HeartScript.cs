@@ -26,6 +26,10 @@ public class HeartScript : MonoBehaviour
         {
             makeHeart(leftMost + spacing*i, height, heart, "heart"+i, i, hearts);
         }
+        for(int i = 0; i< hearts.Length; i++)
+        {
+            print(hearts[i]);
+        }
 
 
 
@@ -38,18 +42,32 @@ public class HeartScript : MonoBehaviour
 
     public void healthSet(int health)
     {
+        print("test for child in method:  " + canvas.gameObject.transform.GetChild(0).gameObject);
+        print("health is:       " + health);
+        for (int i = 0; i < hearts.Length; i++)
+        {
+            print("inside method:    " + hearts[i]);
+        }
         for (int i = 0; i < 3; i++)
         {
-            Destroy(hearts[i]);
+            print(hearts);
+            /*if (hearts.Length > 0)
+            {
+                Destroy(hearts[i]);
+            }
+            */
+            Destroy(canvas.gameObject.transform.GetChild(i).gameObject);
+
+
             if (health >= i * 2 + 2)
             {
-                makeHeart(leftMost + spacing * i, height, heart, "heart" + i, i, hearts);
+                makeHeart(leftMost + spacing * i, height, heart, "heart" + i + "test", i, hearts);
             } else if (health >= i * 2 + 1)
             {
-                makeHeart(leftMost + spacing * i, height, halfHeart, "heart" + i, i, hearts);
+                makeHeart(leftMost + spacing * i, height, halfHeart, "heart" + i + "test", i, hearts);
             } else
             {
-                makeHeart(leftMost + spacing * i, height, noHeart, "heart" + i, i, hearts);
+                makeHeart(leftMost + spacing * i, height, noHeart, "heart" + i + "test", i, hearts);
             }
         }
     }
@@ -68,6 +86,7 @@ public class HeartScript : MonoBehaviour
         image.sprite = Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), new Vector2(0.5f, 0.5f));
         imgObject.transform.SetParent(canvas.transform);
         hearts[position] = imgObject;
-        print(hearts[position]);
+        print("here" + hearts[position] + "   " + hearts.Length);
+        print("test for child:  " + canvas.gameObject.transform.GetChild(position).gameObject);
     }
 }
