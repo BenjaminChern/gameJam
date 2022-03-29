@@ -4,10 +4,9 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - canvas: {fileID: 8547651463190632123, guid: cbcb810374a07d14497ab820009ca9b4, type: 3}
   - heart: {fileID: 2800000, guid: 58dbe59862af9184583561e7fd1d0e71, type: 3}
   - halfHeart: {fileID: 2800000, guid: cee84b50d5b3593409b3b7a96143411e, type: 3}
-  - noHeart: {instanceID: 0}
+  - noHeart: {fileID: 2800000, guid: 566a207bde0f7d246971676c3e296256, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

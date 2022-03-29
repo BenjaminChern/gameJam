@@ -30,6 +30,7 @@ public class PlayerHealth : MonoBehaviour
     {
         health -= damage;
         heartCanvas.GetComponent<HeartScript>().healthSet(health);
+        this.GetComponent<PlayerMovement>().gotHit();
         if (health > 0)
         {
             animator.SetTrigger("Hurt");

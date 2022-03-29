@@ -92,15 +92,51 @@ public class HeartScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(canvas.gameObject.transform.GetChild(0).gameObject);
+        //print(canvas.gameObject.transform.GetChild(0).gameObject);
         print(health);
 
         if(health >= 6)
         {
             image1.sprite = Sprite.Create(heart, new Rect(0, 0, heart.width, heart.height), new Vector2(0.5f, 0.5f));
+            image2.sprite = Sprite.Create(heart, new Rect(0, 0, heart.width, heart.height), new Vector2(0.5f, 0.5f));
+            image3.sprite = Sprite.Create(heart, new Rect(0, 0, heart.width, heart.height), new Vector2(0.5f, 0.5f));
+        } else if(health >= 5)
+        {
+            image1.sprite = Sprite.Create(heart, new Rect(0, 0, heart.width, heart.height), new Vector2(0.5f, 0.5f));
+            image2.sprite = Sprite.Create(heart, new Rect(0, 0, heart.width, heart.height), new Vector2(0.5f, 0.5f));
+            image3.sprite = Sprite.Create(halfHeart, new Rect(0, 0, heart.width, heart.height), new Vector2(0.5f, 0.5f));
+        }
+        else if (health >= 4)
+        {
+            image1.sprite = Sprite.Create(heart, new Rect(0, 0, heart.width, heart.height), new Vector2(0.5f, 0.5f));
+            image2.sprite = Sprite.Create(heart, new Rect(0, 0, heart.width, heart.height), new Vector2(0.5f, 0.5f));
+            image3.sprite = Sprite.Create(noHeart, new Rect(0, 0, heart.width, heart.height), new Vector2(0.5f, 0.5f));
+        }
+        else if (health >= 3)
+        {
+            image1.sprite = Sprite.Create(heart, new Rect(0, 0, heart.width, heart.height), new Vector2(0.5f, 0.5f));
+            image2.sprite = Sprite.Create(halfHeart, new Rect(0, 0, heart.width, heart.height), new Vector2(0.5f, 0.5f));
+            image3.sprite = Sprite.Create(noHeart, new Rect(0, 0, heart.width, heart.height), new Vector2(0.5f, 0.5f));
+        }
+        else if (health >= 2)
+        {
+            image1.sprite = Sprite.Create(heart, new Rect(0, 0, heart.width, heart.height), new Vector2(0.5f, 0.5f));
+            image2.sprite = Sprite.Create(noHeart, new Rect(0, 0, heart.width, heart.height), new Vector2(0.5f, 0.5f));
+            image3.sprite = Sprite.Create(noHeart, new Rect(0, 0, heart.width, heart.height), new Vector2(0.5f, 0.5f));
+        }
+        else if (health >= 1)
+        {
+            image1.sprite = Sprite.Create(halfHeart, new Rect(0, 0, heart.width, heart.height), new Vector2(0.5f, 0.5f));
+            image2.sprite = Sprite.Create(noHeart, new Rect(0, 0, heart.width, heart.height), new Vector2(0.5f, 0.5f));
+            image3.sprite = Sprite.Create(noHeart, new Rect(0, 0, heart.width, heart.height), new Vector2(0.5f, 0.5f));
+        }
+        else if (health >= 0) //dead
+        {
+            image1.sprite = Sprite.Create(noHeart, new Rect(0, 0, heart.width, heart.height), new Vector2(0.5f, 0.5f));
+            image2.sprite = Sprite.Create(noHeart, new Rect(0, 0, heart.width, heart.height), new Vector2(0.5f, 0.5f));
+            image3.sprite = Sprite.Create(noHeart, new Rect(0, 0, heart.width, heart.height), new Vector2(0.5f, 0.5f));
         }
 
-        image1.sprite = Sprite.Create(halfHeart, new Rect(0, 0, heart.width, heart.height), new Vector2(0.5f, 0.5f));
 
     }
 

@@ -8589,6 +8589,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 403232499017433745, guid: 898f7028a7b61ed42b1f8f46cd52bd92, type: 3}
+      propertyPath: health
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 403232499017433745, guid: 898f7028a7b61ed42b1f8f46cd52bd92, type: 3}
       propertyPath: heartCanvas
       value: 
       objectReference: {fileID: 1781628090}

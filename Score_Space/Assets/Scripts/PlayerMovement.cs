@@ -39,12 +39,17 @@ public class PlayerMovement : MonoBehaviour
     public Transform wallCheckRight;
     public Transform wallCheckLeft;
 
+    private bool pauseMovement;
+    private int pauseMovementCounter;
+
 
     private void Start()
     {
         moveInput = 0;
         rb = GetComponent<Rigidbody2D>();
         speed = 0;
+        pauseMovement = false;
+        pauseMovementCounter = 5;   
     }
     private void FixedUpdate()
     {
@@ -73,6 +78,16 @@ public class PlayerMovement : MonoBehaviour
         if(isDashing == false)
         {
             moveInput = Input.GetAxisRaw("Horizontal");
+            if(pauseMovement)
+            {
+                moveInput = 0;
+                pauseMovementCounter -= 1;
+                if(pauseMovementCounter <= 0)
+                {
+                    pauseMovement = false;
+                    pauseMovementCounter = 5;
+                }
+            }
             if (moveInput != 0 && (facingRight && moveInput < 0) || (!facingRight && moveInput > 0))
             {
                 speed *= -1 * turnAroundPenalty;
@@ -241,5 +256,13 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("IsWallSliding", false);
         }
         animator.SetFloat("VerticalVelocity", rb.velocity.y);
+    }
+
+    public void gotHit()
+    {
+        rb.velocity = new Vector2(0f, 0f);
+        speed = 0;
+        pauseMovement = true;
+        pauseMovementCounter = 5;
     }
 }

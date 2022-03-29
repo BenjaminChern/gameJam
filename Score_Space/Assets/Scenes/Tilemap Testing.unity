@@ -263,6 +263,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 224754624309308378, guid: 898f7028a7b61ed42b1f8f46cd52bd92, type: 3}
   m_PrefabInstance: {fileID: 1851954640}
   m_PrefabAsset: {fileID: 0}
+--- !u!223 &711293513 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 8547651463190632006, guid: cbcb810374a07d14497ab820009ca9b4, type: 3}
+  m_PrefabInstance: {fileID: 8547651462076386246}
+  m_PrefabAsset: {fileID: 0}
 --- !u!20 &814339243 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 7649722279506159888, guid: 2db39f4089b18f249b12ecec373531b7, type: 3}
@@ -4687,6 +4692,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 403232499017433745, guid: 898f7028a7b61ed42b1f8f46cd52bd92, type: 3}
+      propertyPath: heartCanvas
+      value: 
+      objectReference: {fileID: 711293513}
     - target: {fileID: 4952508600156158762, guid: 898f7028a7b61ed42b1f8f46cd52bd92, type: 3}
       propertyPath: m_Name
       value: Hero Variant 1
