@@ -22,6 +22,7 @@ public class ScreenShake : MonoBehaviour
 
     public void shake()
     {
+        /*
         float x = this.gameObject.GetComponent<Transform>().x;
         float y = this.gameObject.GetComponent<Transform>().y;
         startX = x;
@@ -31,5 +32,6 @@ public class ScreenShake : MonoBehaviour
         transform.Translate(new Vector3(x, y, 0));
         Time.wait(.25);
         transform.Translate(new Vector3(startX, startY, 0));
+        */
     }
 }
