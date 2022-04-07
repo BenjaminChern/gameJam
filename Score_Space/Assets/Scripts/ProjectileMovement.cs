@@ -55,7 +55,6 @@ public class ProjectileMovement : MonoBehaviour
                 moveInput = 0;
                 rb.velocity = new Vector2(0, 0);
                 currentTime = Time.time + .4f;
-                print("getting hit");
                 hitPlayer.gameObject.GetComponent<PlayerHealth>().getHit(1);
 
             }

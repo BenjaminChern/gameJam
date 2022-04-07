@@ -22,10 +22,6 @@ public class HeartScript : MonoBehaviour
     private Image image2;
     private Image image3;
 
-    private int leftMost = -375;
-    private int height = 150;
-    private int spacing = 30;
-
     private GameObject[] hearts;
     private int health = 6;
     //public Sprite refSprite;
@@ -93,7 +89,7 @@ public class HeartScript : MonoBehaviour
     void Update()
     {
         //print(canvas.gameObject.transform.GetChild(0).gameObject);
-        print(health);
+        //print(health);
 
         if(health >= 6)
         {

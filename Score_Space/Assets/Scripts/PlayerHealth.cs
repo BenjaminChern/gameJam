@@ -34,13 +34,13 @@ public class PlayerHealth : MonoBehaviour
         if (health > 0)
         {
             animator.SetTrigger("Hurt");
-            Debug.Log("multiple hurt");
         }
         //Debug.Log("player took " + damage + "damage");
         if(health <= 0 && firstDeath)
         {
             animator.SetTrigger("Die");
             firstDeath = false;
+            heartCanvas.GetComponent<DarkScreen>().darken();
         }
     }
 }

@@ -125,10 +125,11 @@ GameObject:
   - component: {fileID: 5215930287316360600}
   - component: {fileID: 931977688799431562}
   - component: {fileID: 7793112793653263473}
+  - component: {fileID: 843314036368342447}
   - component: {fileID: 9020648222872652331}
   - component: {fileID: 6883047117808795548}
   m_Layer: 3
-  m_Name: Skeleton
+  m_Name: Ranged Skeleton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -188,7 +189,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -804621615
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 4723107735738678597, guid: c6064b80cc9a820408c17b5d6e7a9b2e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -234,6 +235,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1997750316695792236, guid: a604ae1d738182a49ba8c9489f880326, type: 3}
   attackRange: 1.62
+  speed: 1
+  health: 3
   attackCooldown: 1
   arrow: {fileID: 258890197690363625, guid: 17fc4a00e85f1114c922e83ecccb310e, type: 3}
   animator: {fileID: 5215930287316360600}
@@ -258,6 +261,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &843314036368342447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5215930287316360601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1242be7b3571f1a43a5888848742267e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 2
+  animator: {fileID: 5215930287316360600}
 --- !u!61 &9020648222872652331
 BoxCollider2D:
   m_ObjectHideFlags: 0

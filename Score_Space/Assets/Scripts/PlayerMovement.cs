@@ -55,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if(Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround) && !isGrounded)
         {
-            Debug.Log("hit ground");
+            //Debug.Log("hit ground");
         }
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
 

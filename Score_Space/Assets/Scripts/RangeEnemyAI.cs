@@ -10,7 +10,7 @@ public class RangeEnemyAI : MonoBehaviour
     public float attackRange; 
 
     private float moveInput;
-    private float speed;
+    public float speed = 1;
     public float health = 3;
 
     public float attackCooldown;
@@ -29,36 +29,51 @@ public class RangeEnemyAI : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        speed = 5;
 
     }
 
     private void FixedUpdate()
     {
 
-        /*if (facingRight)
+        if (facingRight)
         {
             moveInput = 1;
         }
         else 
         {
             moveInput = -1;
-        }*/
+        }
         
 
-        if ((player.transform.position.x - rb.position.x) > .01)
+        if ((player.transform.position.x - rb.position.x) > 5)
         {
             if (facingRight == false)
             {
-                flip();
+                flip();//attack
             }
         }
-        else if((player.transform.position.x - rb.position.x) < -.01)
+        if ((player.transform.position.x - rb.position.x) < 5)
         {
-            if (facingRight)
+            if (facingRight == true)
             {
                 flip();
             }
+            run();
+        }
+        if ((player.transform.position.x - rb.position.x) > -5)
+        {
+            if (facingRight == false)
+            {
+                flip(); //attack
+            }
+        }
+        if ((player.transform.position.x - rb.position.x) < -5)
+        {
+            if (facingRight == true)
+            {
+                flip();
+            }
+            run();
         }
 
         if (Time.time > nextAttackTime)
@@ -78,10 +93,11 @@ public class RangeEnemyAI : MonoBehaviour
             
 
         }
-
-
-        //rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
-        //animator.SetFloat("AnimationSpeed", Mathf.Abs(moveInput));
+    }
+    private void run()
+    {
+        rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
+        animator.SetFloat("AnimationSpeed", Mathf.Abs(moveInput));
     }
 
     public void getHit(int damage)

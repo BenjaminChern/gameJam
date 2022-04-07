@@ -26,12 +26,18 @@ public class DarkScreen : MonoBehaviour
         image = blackSquare.AddComponent<Image>();
         image.sprite = Sprite.Create(black, new Rect(0, 0, black.width, black.height), new Vector2(0.5f, 0.5f));
 
-       // blackSquare.GetComponent<MeshRenderer>().material.color.Seta = .1f;
+        image.color = new Color(image.color.r, image.color.g, image.color.b, 0f);
+
+        // blackSquare.GetComponent<MeshRenderer>().material.color.Seta = .1f;
     }
 
     // Update is called once per frame
-    void Update()
+    public void darken()
     {
-        
+        image.color = new Color(image.color.r, image.color.g, image.color.b, .675f);
+    }
+    public void undarken()
+    {
+        image.color = new Color(image.color.r, image.color.g, image.color.b, 0f);
     }
 }
