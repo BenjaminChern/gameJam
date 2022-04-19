@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class DarkScreen : MonoBehaviour
 {
@@ -10,11 +11,12 @@ public class DarkScreen : MonoBehaviour
     private GameObject blackSquare;
     private RectTransform trans;
     private Image image;
+    public GameObject GameOverScreen; 
 
     // Start is called before the first frame update
     void Start()
     {
-        canvas = gameObject;
+        /*canvas = gameObject;
 
         blackSquare = new GameObject("black");
         trans = blackSquare.AddComponent<RectTransform>();
@@ -29,15 +31,25 @@ public class DarkScreen : MonoBehaviour
         image.color = new Color(image.color.r, image.color.g, image.color.b, 0f);
 
         // blackSquare.GetComponent<MeshRenderer>().material.color.Seta = .1f;
+        */
     }
 
     // Update is called once per frame
     public void darken()
     {
-        image.color = new Color(image.color.r, image.color.g, image.color.b, .675f);
+        GameOverScreen.SetActive(true);
+        //image.color = new Color(image.color.r, image.color.g, image.color.b, .675f);
     }
     public void undarken()
     {
         image.color = new Color(image.color.r, image.color.g, image.color.b, 0f);
+    }
+    public void playAgain()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    public void mainMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 }

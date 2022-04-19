@@ -6361,7 +6361,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7649722279506159891, guid: 2db39f4089b18f249b12ecec373531b7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.3087006
+      value: -3.3087003
       objectReference: {fileID: 0}
     - target: {fileID: 7649722279506159891, guid: 2db39f4089b18f249b12ecec373531b7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6493,6 +6493,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3622233225155039329, guid: cbcb810374a07d14497ab820009ca9b4, type: 3}
+      propertyPath: GameOverScreen
+      value: 
+      objectReference: {fileID: 1482598202}
     - target: {fileID: 8547651463190632004, guid: cbcb810374a07d14497ab820009ca9b4, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -6585,12 +6589,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8547651463190632120, guid: cbcb810374a07d14497ab820009ca9b4, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8547651463190632123, guid: cbcb810374a07d14497ab820009ca9b4, type: 3}
       propertyPath: m_Name
       value: HeartCanvas
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cbcb810374a07d14497ab820009ca9b4, type: 3}
+--- !u!1 &1482598202 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1559317624097078868, guid: cbcb810374a07d14497ab820009ca9b4, type: 3}
+  m_PrefabInstance: {fileID: 1482598201}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1486517456
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8596,6 +8609,14 @@ PrefabInstance:
       propertyPath: heartCanvas
       value: 
       objectReference: {fileID: 1781628090}
+    - target: {fileID: 3821548548507239923, guid: 898f7028a7b61ed42b1f8f46cd52bd92, type: 3}
+      propertyPath: dashTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3821548548507239923, guid: 898f7028a7b61ed42b1f8f46cd52bd92, type: 3}
+      propertyPath: dashDistance
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 4952508600156158762, guid: 898f7028a7b61ed42b1f8f46cd52bd92, type: 3}
       propertyPath: m_Name
       value: Hero Variant

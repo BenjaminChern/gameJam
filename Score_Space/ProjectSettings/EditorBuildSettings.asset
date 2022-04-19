@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Tilemap Testing.unity
     guid: f7fd73ac0385808488b9defb61a689d7
+  - enabled: 1
+    path: Assets/Scenes/EnemyTutorial.unity
+    guid: c60d59783832c12478e82f6c0c685a86
   m_configObjects: {}
