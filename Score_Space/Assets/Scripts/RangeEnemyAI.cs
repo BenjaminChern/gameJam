@@ -45,36 +45,45 @@ public class RangeEnemyAI : MonoBehaviour
         }
         
 
-        if ((player.transform.position.x - rb.position.x) > 5)
+        if ((player.transform.position.x - rb.position.x) < 4 && (player.transform.position.x - rb.position.x) >= 0)
         {
-            if (facingRight == false)
+            if (facingRight == true)
             {
                 flip();//attack
             }
         }
-        if ((player.transform.position.x - rb.position.x) < 5)
+        else if ((player.transform.position.x - rb.position.x) > 6)
         {
-            if (facingRight == true)
+            if (facingRight == false)
             {
                 flip();
             }
-            run();
+            //run();
         }
-        if ((player.transform.position.x - rb.position.x) > -5)
+        else if((player.transform.position.x - rb.position.x) >= 0)
+        {
+            moveInput = 0;
+        }
+        if ((player.transform.position.x - rb.position.x) > -4 && (player.transform.position.x - rb.position.x) <= 0)
         {
             if (facingRight == false)
             {
                 flip(); //attack
             }
         }
-        if ((player.transform.position.x - rb.position.x) < -5)
+        else if ((player.transform.position.x - rb.position.x) < -6)
         {
             if (facingRight == true)
             {
                 flip();
             }
-            run();
+            //run();
         }
+        else if((player.transform.position.x - rb.position.x) <= 0)
+        {
+            moveInput = 0;
+        }
+        run();
 
         if (Time.time > nextAttackTime)
         {
