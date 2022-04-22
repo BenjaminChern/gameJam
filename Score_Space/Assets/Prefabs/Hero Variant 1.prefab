@@ -244,6 +244,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7641316818759668917, guid: a604ae1d738182a49ba8c9489f880326, type: 3}
+      propertyPath: whatIsDoor.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: 7641316818759668917, guid: a604ae1d738182a49ba8c9489f880326, type: 3}
       propertyPath: whatIsGround.m_Bits
       value: 512
       objectReference: {fileID: 0}

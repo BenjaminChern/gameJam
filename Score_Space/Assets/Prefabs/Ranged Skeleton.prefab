@@ -233,7 +233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98165a8f90566524783764c68d095319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1997750316695792236, guid: a604ae1d738182a49ba8c9489f880326, type: 3}
+  player: {fileID: 4952508600156158762, guid: 898f7028a7b61ed42b1f8f46cd52bd92, type: 3}
   attackRange: 1.62
   speed: 1
   health: 3

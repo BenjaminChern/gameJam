@@ -21,10 +21,12 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private bool facingRight = true;
 
-    public bool isGrounded;
+    private bool isGrounded;
+    private bool inDoor;
     public Transform groundCheck;
     public float checkRadius;
     public LayerMask whatIsGround;
+    public LayerMask whatIsDoor;
 
     public Animator animator;
 
@@ -53,10 +55,8 @@ public class PlayerMovement : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if(Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround) && !isGrounded)
-        {
-            //Debug.Log("hit ground");
-        }
+        inDoor = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsDoor);
+
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
 
         isWallSliding = Physics2D.OverlapCircle(wallCheckLeft.position, checkRadius, whatIsGround); //removed wallcheck right
@@ -65,7 +65,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (!isGrounded)
             {
-                
+                //we dont know why this is here, but I swear if u remove it everything breaks
             }
         }
         updateAnimator();
@@ -188,14 +188,14 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
         }
-        
+
         if (Input.GetKeyDown(KeyCode.K))
         {
-            if(Time.time > nextDashTime)
+            if (Time.time > nextDashTime)
             {
                 if (facingRight == true)
                 {
-                    nextDashTime = Time.time + dashCooldown; 
+                    nextDashTime = Time.time + dashCooldown;
                     StartCoroutine(Dash(1));
                 }
                 if (facingRight == false)
@@ -213,6 +213,14 @@ public class PlayerMovement : MonoBehaviour
         if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W)) && extraJumps == 0 && isGrounded == true)
         {
             rb.velocity = Vector2.up * jumpForce;
+        }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (inDoor)
+            {
+                print("u moved on");
+            }
         }
     }
     void flip()

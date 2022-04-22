@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ec8f2a595629c548bb1a8a5841a0a18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 3135612545317604361, guid: 66c607b8953935a4cbb7982cb6651399, type: 3}
+  player: {fileID: 4952508600156158762, guid: 898f7028a7b61ed42b1f8f46cd52bd92, type: 3}
   movementRange: 10
   health: 3
   attackCooldown: 1
@@ -142,7 +142,8 @@ PrefabInstance:
       propertyPath: m_CollisionDetection
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 931977688799431562, guid: 6444a5325a164ac4589cbbc92f6a0afd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6444a5325a164ac4589cbbc92f6a0afd, type: 3}
 --- !u!1 &1646584968250135395 stripped
 GameObject:
