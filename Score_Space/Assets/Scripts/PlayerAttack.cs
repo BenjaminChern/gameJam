@@ -35,7 +35,7 @@ public class PlayerAttack : MonoBehaviour
             if(names.Contains(enemy.name) == false)
             {
                 names.Add(enemy.name);
-                //Debug.Log("hit enemy poggies " + enemy.name);
+                Debug.Log("hit enemy poggies " + enemy.name);
                 enemy.gameObject.GetComponent<EnemyHealth>().getHit(1);
             }
         }

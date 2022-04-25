@@ -56,7 +56,10 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         inDoor = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsDoor);
-
+        if (inDoor)
+        {
+            print("indoor");
+        }
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
 
         isWallSliding = Physics2D.OverlapCircle(wallCheckLeft.position, checkRadius, whatIsGround); //removed wallcheck right
