@@ -41,6 +41,7 @@ public class PlayerHealth : MonoBehaviour
             animator.SetTrigger("Die");
             firstDeath = false;
             heartCanvas.GetComponent<DarkScreen>().darken();
+            this.GetComponent<PlayerMovement>().setAlive(false);
         }
     }
 }

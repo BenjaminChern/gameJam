@@ -23,7 +23,7 @@ public class HeartScript : MonoBehaviour
     private Image image3;
 
     private GameObject[] hearts;
-    private int health = 6;
+    public int health = 6;
     //public Sprite refSprite;
 
     // Use this for initialization
@@ -39,19 +39,19 @@ public class HeartScript : MonoBehaviour
         trans1 = heartObject1.AddComponent<RectTransform>();
         trans1.transform.SetParent(canvas.transform); // setting parent
         trans1.localScale = Vector3.one;
-        trans1.anchoredPosition = new Vector2(-375, 150); // setting position, will be on center
+        trans1.anchoredPosition = new Vector2(-350, 210); // setting position, will be on center
         trans1.sizeDelta = new Vector2(30, 30); // custom size
 
         trans2 = heartObject2.AddComponent<RectTransform>();
         trans2.transform.SetParent(canvas.transform); // setting parent
         trans2.localScale = Vector3.one;
-        trans2.anchoredPosition = new Vector2(-345, 150); // setting position, will be on center
+        trans2.anchoredPosition = new Vector2(-320, 210); // setting position, will be on center
         trans2.sizeDelta = new Vector2(30, 30); // custom size
 
         trans3 = heartObject3.AddComponent<RectTransform>();
         trans3.transform.SetParent(canvas.transform); // setting parent
         trans3.localScale = Vector3.one;
-        trans3.anchoredPosition = new Vector2(-315, 150); // setting position, will be on center
+        trans3.anchoredPosition = new Vector2(-290, 210); // setting position, will be on center
         trans3.sizeDelta = new Vector2(30, 30); // custom size
 
 
@@ -86,13 +86,14 @@ public class HeartScript : MonoBehaviour
 
     }
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
         //print(canvas.gameObject.transform.GetChild(0).gameObject);
-        //print(health);
+        //print("here " + getHealth());
 
         if(health >= 6)
         {
+
             image1.sprite = Sprite.Create(heart, new Rect(0, 0, heart.width, heart.height), new Vector2(0.5f, 0.5f));
             image2.sprite = Sprite.Create(heart, new Rect(0, 0, heart.width, heart.height), new Vector2(0.5f, 0.5f));
             image3.sprite = Sprite.Create(heart, new Rect(0, 0, heart.width, heart.height), new Vector2(0.5f, 0.5f));
@@ -168,14 +169,15 @@ public class HeartScript : MonoBehaviour
     }
     */
 
-    public void healthSet(int health)
+    public void healthSet(int health2)
     {
         //print("test for child in method:  " + canvas.gameObject.transform.GetChild(0).gameObject);
-        //print("health is:       " + health);
+        //print("health is:       " + getHealth());
 
         //updateHearts(health);
-        this.health = health;
+        this.health = health2;
     }
+
     /*
     void makeHeart(int x, int y, Texture2D tex, string name, int position, GameObject[] hearts)
     {

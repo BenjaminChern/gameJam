@@ -1,6 +1,8 @@
 using System.Collections;
-using System.Collections.Generic;
+//using System.Collections.Generic;
+//using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -44,6 +46,10 @@ public class PlayerMovement : MonoBehaviour
     private bool pauseMovement;
     private int pauseMovementCounter;
 
+    private bool isAlive;
+
+    //public GameObject door;
+
 
     private void Start()
     {
@@ -52,6 +58,7 @@ public class PlayerMovement : MonoBehaviour
         speed = 0;
         pauseMovement = false;
         pauseMovementCounter = 5;   
+        isAlive = true;
     }
     private void FixedUpdate()
     {
@@ -59,6 +66,7 @@ public class PlayerMovement : MonoBehaviour
         if (inDoor)
         {
             print("indoor");
+            SceneManager.LoadScene("2");
         }
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
 
@@ -78,7 +86,7 @@ public class PlayerMovement : MonoBehaviour
             speed = topSpeed;
         }
 
-        if(isDashing == false)
+        if(isDashing == false && isAlive)
         {
             moveInput = Input.GetAxisRaw("Horizontal");
             if(pauseMovement)
@@ -191,38 +199,40 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
         }
-
-        if (Input.GetKeyDown(KeyCode.K))
+        if (isAlive)
         {
-            if (Time.time > nextDashTime)
+            if (Input.GetKeyDown(KeyCode.K) && isAlive)
             {
-                if (facingRight == true)
+                if (Time.time > nextDashTime)
                 {
-                    nextDashTime = Time.time + dashCooldown;
-                    StartCoroutine(Dash(1));
-                }
-                if (facingRight == false)
-                {
-                    nextDashTime = Time.time + dashCooldown;
-                    StartCoroutine(Dash(-1));
+                    if (facingRight == true)
+                    {
+                        nextDashTime = Time.time + dashCooldown;
+                        StartCoroutine(Dash(1));
+                    }
+                    if (facingRight == false)
+                    {
+                        nextDashTime = Time.time + dashCooldown;
+                        StartCoroutine(Dash(-1));
+                    }
                 }
             }
-        }
-        if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W)) && extraJumps > 0)
-        {
-            rb.velocity = Vector2.up * jumpForce;
-            extraJumps--;
-        }
-        if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W)) && extraJumps == 0 && isGrounded == true)
-        {
-            rb.velocity = Vector2.up * jumpForce;
-        }
-
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            if (inDoor)
+            if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W)) && extraJumps > 0)
             {
-                print("u moved on");
+                rb.velocity = Vector2.up * jumpForce;
+                extraJumps--;
+            }
+            if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W)) && extraJumps == 0 && isGrounded == true)
+            {
+                rb.velocity = Vector2.up * jumpForce;
+            }
+
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                if (inDoor)
+                {
+                    print("u moved on");
+                }
             }
         }
     }
@@ -275,5 +285,10 @@ public class PlayerMovement : MonoBehaviour
         speed = 0;
         pauseMovement = true;
         pauseMovementCounter = 5;
+    }
+
+    public void setAlive(bool aliveStatus)
+    {
+        isAlive = aliveStatus;
     }
 }

@@ -11,11 +11,13 @@ public class DarkScreen : MonoBehaviour
     private GameObject blackSquare;
     private RectTransform trans;
     private Image image;
-    public GameObject GameOverScreen; 
+    public GameObject GameOverScreen;
 
     // Start is called before the first frame update
     void Start()
     {
+        GameOverScreen.SetActive(false);
+        //GameOverScreen.transform.localScale *= 2;
         /*canvas = gameObject;
 
         blackSquare = new GameObject("black");
@@ -37,6 +39,7 @@ public class DarkScreen : MonoBehaviour
     // Update is called once per frame
     public void darken()
     {
+        //print("here");
         GameOverScreen.SetActive(true);
         //image.color = new Color(image.color.r, image.color.g, image.color.b, .675f);
     }

@@ -35,6 +35,9 @@ public class EnemyHealth : MonoBehaviour
             firstDeath = false;
             this.gameObject.GetComponent<MeleeEnemyAI>().die();
 
+        } 
+        else if(health <= 0) {
+            Destroy(this.gameObject);
         }
     }
 }
